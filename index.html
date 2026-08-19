@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anseera | Mehendi Ceremony</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f4e9;
+    color:#263b2a;
+    font-family:Georgia,serif;
+    overflow-x:hidden;
+}
+
+/* COLORS */
+
+:root{
+    --green:#315c3b;
+    --darkgreen:#1e3926;
+    --gold:#c6a15b;
+    --cream:#f8f4e9;
+    --light:#fffdf7;
+    --text:#263b2a;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px 20px;
+    position:relative;
+
+    background:
+    radial-gradient(circle at 10% 20%,rgba(198,161,91,.18),transparent 25%),
+    radial-gradient(circle at 90% 80%,rgba(49,92,59,.15),transparent 30%),
+    var(--cream);
+}
+
+.hero:before,
+.hero:after{
+    content:"❋";
+    position:absolute;
+    color:var(--gold);
+    font-size:70px;
+    opacity:.5;
+}
+
+.hero:before{
+    top:40px;
+    left:35px;
+}
+
+.hero:after{
+    bottom:40px;
+    right:35px;
+}
+
+.content{
+    max-width:850px;
+}
+
+.small{
+    letter-spacing:6px;
+    font-size:13px;
+    color:#7c776c;
+    margin-bottom:35px;
+}
+
+.bismillah{
+    font-size:30px;
+    margin-bottom:35px;
+    color:var(--green);
+}
+
+.title{
+    font-size:18px;
+    letter-spacing:5px;
+    color:var(--gold);
+    margin-bottom:25px;
+}
+
+.name{
+    font-size:clamp(65px,12vw,120px);
+    color:var(--green);
+    font-weight:500;
+    letter-spacing:4px;
+}
+
+.divider{
+    width:120px;
+    height:1px;
+    background:var(--gold);
+    margin:30px auto;
+}
+
+.invite{
+    font-size:16px;
+    letter-spacing:3px;
+    color:#777267;
+}
+
+/* SECTION */
+
+section{
+    padding:90px 20px;
+    text-align:center;
+}
+
+.section-label{
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:5px;
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:48px;
+    color:var(--green);
+    font-weight:500;
+}
+
+/* DATE */
+
+.date-card{
+    max-width:650px;
+    margin:40px auto;
+    background:var(--light);
+    border:1px solid #ddd4c0;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 10px 35px rgba(40,60,40,.08);
+}
+
+.month{
+    padding:30px;
+    border-bottom:1px solid #e3dac7;
+    color:var(--green);
+    letter-spacing:6px;
+    font-size:28px;
+}
+
+.date{
+    font-size:110px;
+    color:var(--gold);
+    padding:35px 20px 10px;
+}
+
+.year{
+    font-size:24px;
+    color:#777267;
+    padding-bottom:30px;
+}
+
+.time{
+    border-top:1px solid #e3dac7;
+    padding:25px;
+    font-size:25px;
+    color:var(--green);
+}
+
+/* VENUE */
+
+.venue{
+    background:#eef2e7;
+}
+
+.venue-name{
+    font-size:45px;
+    color:var(--green);
+    margin:20px 0 10px;
+}
+
+.location{
+    color:#777267;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    border:1px solid var(--green);
+    border-radius:40px;
+    text-decoration:none;
+    color:var(--green);
+    letter-spacing:3px;
+    font-size:12px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--green);
+    color:white;
+}
+
+/* COUNTDOWN */
+
+.countdown-section{
+    background:var(--darkgreen);
+    color:white;
+}
+
+.countdown-section .section-label{
+    color:var(--gold);
+}
+
+.countdown-title{
+    font-size:45px;
+    margin-bottom:40px;
+}
+
+.countdown{
+    max-width:800px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.box{
+    border:1px solid rgba(198,161,91,.5);
+    padding:30px 10px;
+    border-radius:20px;
+}
+
+.number{
+    font-size:55px;
+    color:#fff;
+}
+
+.label{
+    font-size:10px;
+    letter-spacing:3px;
+    color:#cbbf9f;
+}
+
+/* MEHENDI MESSAGE */
+
+.message{
+    max-width:750px;
+    margin:auto;
+}
+
+.message p{
+    font-size:22px;
+    line-height:1.8;
+    color:#625f56;
+}
+
+/* FOOTER */
+
+footer{
+    background:#1e3926;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.footer-name{
+    font-size:40px;
+    color:#d7b976;
+    margin-bottom:15px;
+}
+
+footer p{
+    color:#c8c8bd;
+}
+
+/* FLOATING FLOWERS */
+
+.flower{
+    position:fixed;
+    top:-20px;
+    color:#c6a15b;
+    pointer-events:none;
+    animation:fall linear forwards;
+    z-index:10;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .hero{
+        min-height:90vh;
+    }
+
+    .bismillah{
+        font-size:25px;
+    }
+
+    .name{
+        font-size:70px;
+    }
+
+    .section-title{
+        font-size:40px;
+    }
+
+    .venue-name{
+        font-size:34px;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .number{
+        font-size:45px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="content">
+
+<div class="bismillah">
+بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+</div>
+
+<div class="small">
+WITH LOVE & JOY
+</div>
+
+<div class="title">
+MEHENDI CEREMONY
+</div>
+
+<div class="name">
+ANSEERA
+</div>
+
+<div class="divider"></div>
+
+<div class="invite">
+YOU ARE WARMLY INVITED TO CELEBRATE
+<br>
+THIS BEAUTIFUL OCCASION WITH US
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DATE -->
+
+<section>
+
+<div class="section-label">
+SAVE THE DATE
+</div>
+
+<div class="section-title">
+MEHENDI DAY
+</div>
+
+<div class="date-card">
+
+<div class="month">
+SEPTEMBER
+</div>
+
+<div class="date">
+01
+</div>
+
+<div class="year">
+2026 · TUESDAY
+</div>
+
+<div class="time">
+TIME TO BE ANNOUNCED
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VENUE -->
+
+<section class="venue">
+
+<div class="section-label">
+VENUE
+</div>
+
+<div class="venue-name">
+MEGA PLAZA
+</div>
+
+<div class="location">
+📍 Kaikamba, Mangaluru
+</div>
+
+<a
+class="btn"
+href="https://www.google.com/maps/search/?api=1&query=Mega+Plaza+Kaikamba"
+target="_blank">
+GET DIRECTIONS
+</a>
+
+</section>
+
+
+<!-- COUNTDOWN -->
+
+<section class="countdown-section">
+
+<div class="section-label">
+THE CELEBRATION BEGINS IN
+</div>
+
+<div class="countdown-title">
+MEHENDI COUNTDOWN
+</div>
+
+<div class="countdown">
+
+<div class="box">
+<div class="number" id="days">00</div>
+<div class="label">DAYS</div>
+</div>
+
+<div class="box">
+<div class="number" id="hours">00</div>
+<div class="label">HOURS</div>
+</div>
+
+<div class="box">
+<div class="number" id="minutes">00</div>
+<div class="label">MINUTES</div>
+</div>
+
+<div class="box">
+<div class="number" id="seconds">00</div>
+<div class="label">SECONDS</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MESSAGE -->
+
+<section>
+
+<div class="message">
+
+<div class="section-label">
+A SPECIAL INVITATION
+</div>
+
+<div class="section-title">
+Celebrate With Us
+</div>
+
+<br>
+
+<p>
+With hearts full of happiness,
+we invite you to join us for a beautiful
+Mehendi celebration filled with
+love, laughter, colours and memories.
+</p>
+
+<br>
+
+<p>
+Your presence will make this special
+occasion even more beautiful. 💚
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-name">
+ANSEERA
+</div>
+
+<p>
+MEHENDI CEREMONY · 01 SEPTEMBER 2026
+</p>
+
+<p style="margin-top:15px;">
+MEGA PLAZA · KAIKAMBA
+</p>
+
+</footer>
+
+
+<script>
+
+/* COUNTDOWN */
+
+const mehendiDate =
+new Date("September 1, 2026 18:00:00").getTime();
+
+function updateCountdown(){
+
+const now = new Date().getTime();
+
+const distance = mehendiDate - now;
+
+if(distance <= 0){
+
+document.getElementById("days").innerHTML="00";
+document.getElementById("hours").innerHTML="00";
+document.getElementById("minutes").innerHTML="00";
+document.getElementById("seconds").innerHTML="00";
+
+return;
+
+}
+
+const days =
+Math.floor(distance/(1000*60*60*24));
+
+const hours =
+Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes =
+Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds =
+Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML =
+String(days).padStart(2,"0");
+
+document.getElementById("hours").innerHTML =
+String(hours).padStart(2,"0");
+
+document.getElementById("minutes").innerHTML =
+String(minutes).padStart(2,"0");
+
+document.getElementById("seconds").innerHTML =
+String(seconds).padStart(2,"0");
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+
+/* GOLD FLOWERS */
+
+function createFlower(){
+
+const flower=document.createElement("div");
+
+flower.className="flower";
+
+flower.innerHTML="✦";
+
+flower.style.left=
+Math.random()*100+"vw";
+
+flower.style.animationDuration=
+(5+Math.random()*7)+"s";
+
+flower.style.fontSize=
+(8+Math.random()*10)+"px";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>{
+flower.remove();
+},12000);
+
+}
+
+setInterval(createFlower,1000);
+
+</script>
+
+</body>
+</html>
